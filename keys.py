@@ -1,10 +1,10 @@
 # Replace 'YOUR_BOT_TOKEN' with the token obtained from BotFather
-TOKEN = '6719923312:AAGumzyvBTRZkY58m5FScBlmw5c72pDseag'
+TOKEN = 'YOUR TOKEN'
 
 # Replace 'USER_CHAT_ID' with the chat ID of the user or group where you want to send the image
-ID = '6721401454'
+ID = 'YOUR ID'
 
-DEV_NAME = "HP LAPTOP"
+DEV_NAME = "YOUR DEVICE NAME"
 
 ##### DO NOT EDIT THE BELOW CODE#########
 if TOKEN == 'YOUR_BOT_TOKEN':
