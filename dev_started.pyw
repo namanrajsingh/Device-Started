@@ -4,6 +4,8 @@ from asyncio import run
 from  socket import create_connection
 from  time import sleep
 from os import remove,path
+from datetime import datetime
+
 bot = Bot(token=TOKEN)
 
 import cv2
@@ -23,7 +25,18 @@ def capture_image():
 
     # Release the camera
     cap.release()
+    # Get the current date and time
+    current_time = datetime.now().strftime('%m-%d-%Y %H:%M:%S')
 
+    # Define the font and position for the text
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    position = (10, 30)  # Position of the text
+    font_scale = 1
+    color = (255, 255, 255)  # White color text
+    thickness = 2
+
+    # Add the date and time to the frame
+    cv2.putText(frame, current_time, position, font, font_scale, color, thickness, cv2.LINE_AA)
     if ret:
         return frame
     else:
@@ -37,7 +50,6 @@ def cameraCapture():
     # Check if the image was successfully captured
     if captured_image is not None:
         # Save the image
-        # save_image(captured_image)
         cv2.imwrite(filename, captured_image)
     return filename
 
@@ -53,7 +65,7 @@ def check_internet():
 async def send_image():
     try:
         with open(jpgFile, 'rb') as f:
-            await bot.send_photo(chat_id=ID, photo=f,caption="Your {} is started now".format(DEV_NAME))
+            await bot.send_photo(chat_id=ID, photo=f,caption="Your {} is started.".format(DEV_NAME))
     except Exception as e:
         pass
 
@@ -65,7 +77,7 @@ if __name__ == "__main__":
         remove(jpgFile)
 
     cameraCapture()
-    
+
     while True:
         if check_internet():
             run(send_image())
