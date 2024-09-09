@@ -4,7 +4,7 @@ TOKEN = 'YOUR TOKEN'
 # Replace 'USER_CHAT_ID' with the chat ID of the user or group where you want to send the image
 ID = 'YOUR ID'
 
-DEV_NAME = "YOUR DEVICE NAME"
+DEV_NAME = "LAPTOP"
 
 ##### DO NOT EDIT THE BELOW CODE#########
 if TOKEN == 'YOUR_BOT_TOKEN':
